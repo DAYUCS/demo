@@ -24,8 +24,8 @@ public class DemoApplication {
 		if (response.getStatusCode().is2xxSuccessful()) {
 			return ResponseEntity.status(HttpStatus.OK).body("HTTP Status is 200\n");
 		} else {
-			//return ResponseEntity.status(response.getStatusCode()).body("HTTP Status is not 200\n");
-			return ResponseEntity.status(HttpStatus.OK).body("HTTP Status is not 200\n");
+			return ResponseEntity.status(response.getStatusCode()).body("HTTP Status is not 200\n");
+			//return ResponseEntity.status(HttpStatus.OK).body("HTTP Status is not 200\n");
 		}
 
 	}
