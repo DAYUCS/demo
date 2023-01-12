@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo200
+  labels:
+    app: demo200
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: demo200
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo200-deployment
+  labels:
+    app: demo200
+spec:
+  selector:
+    matchLabels:
+      app: demo200
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demo200
+    spec:
+      containers:
+      - name: demo200
+        image: biandayu/demo:v1.0.4
+        ports:
+        - containerPort: 8080
