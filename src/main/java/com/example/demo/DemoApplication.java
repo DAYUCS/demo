@@ -19,13 +19,13 @@ public class DemoApplication {
 	@RequestMapping("/api/nginx")
 	public ResponseEntity<String> testNginx() {
 		RestTemplate restTemplate = new RestTemplate();
-		String fooResourceUrl = "http://10.39.107.102:32399/";
+		String fooResourceUrl = "http://nginx-service.default:80/";
 		ResponseEntity<String> response = restTemplate.getForEntity(fooResourceUrl, String.class);
 		if (response.getStatusCode().is2xxSuccessful()) {
 			return ResponseEntity.status(HttpStatus.OK).body("HTTP Status is 200\n");
 		} else {
-			return ResponseEntity.status(response.getStatusCode()).body("HTTP Status is not 200\n");
-			//return ResponseEntity.status(HttpStatus.OK).body("HTTP Status is not 200\n");
+			//return ResponseEntity.status(response.getStatusCode()).body("HTTP Status is not 200\n");
+			return ResponseEntity.status(HttpStatus.OK).body("HTTP Status is not 200\n");
 		}
 
 	}
