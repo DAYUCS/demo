@@ -1,2 +1,14 @@
-mvn spring-boot:build-image
-docker tag demo:0.0.1-SNAPSHOT biandayu/demo:v1.0.2
+# Chaos Scenario
+
+## Deploy back-end service
+```
+kubectl apply -f nginx.yaml
+```
+
+## Deploy front-end service
+```
+kubectl apply -f demo200.yaml
+```
+
+## Run Litmus scenario -- deletepodofnginx-1673567591.yaml
+## Change replicas of nginx to 1, then rerun the scenario again.
